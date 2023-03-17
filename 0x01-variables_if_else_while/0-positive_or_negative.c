@@ -9,7 +9,7 @@
  * srand - generating random numbers in sequence
  * return: always 0 (success)
  */
-
+/* This program returns 0 on success and non-zero on failure */
 int main(void)
 {
 	int n;
