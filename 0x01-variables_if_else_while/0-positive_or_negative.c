@@ -6,10 +6,9 @@
 /* betty style doc for function main goes there */
 /**
  * main - Entry point
- * srand - generating random numbers in sequence
- * return: always 0 (success)
+ *
+ * Return: Always 0 (Success)
  */
-/* This program returns 0 on success and non-zero on failure */
 int main(void)
 {
 	int n;
