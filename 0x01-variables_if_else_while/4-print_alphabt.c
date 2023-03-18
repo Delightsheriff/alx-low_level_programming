@@ -13,7 +13,11 @@ int main(void)
 	while (alphbet[i] != '\0')
 	{
 		if (alphbet[i] == 'e' || alphbet[i] == 'q')
+		{
+			i++;
 			continue;
+		}
+
 		putchar(alphbet[i]);
 		i++;
 	}
