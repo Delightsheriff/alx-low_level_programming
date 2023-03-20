@@ -10,19 +10,22 @@ int main(void)
 	int i;
 	int j;
 
-	for (i = 0; i < 10 ; i++)
+	for (i = 0; i <= 9 ; i++)
 	{
-		for (j = 0 ; j < 10 ; j++)
+		for (j = 0 ; j <= 9 ; j++)
 		{
-			putchar('0' + i);
-			putchar('0' + j);
-			if (j != 9)
+			putchar(i + '0');
+			putchar(j + '0');
+			if (i != 8 || j != 9)
 			{
 				putchar(',');
+				putchar(' ');
 			}
+
 		}
-		putchar('\n');
+
 	}
+	putchar('\n');
 
 	return (0);
 }
