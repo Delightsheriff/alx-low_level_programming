@@ -17,6 +17,9 @@ void times_table(void)
 
 	for (i = 0; i <= table; i++)
 	{
+		_putchar('0');
+		_putchar(',');
+		_putchar(' ');
 		for (j = 0; j <= max; j++)
 		{
 			product = i * j;
