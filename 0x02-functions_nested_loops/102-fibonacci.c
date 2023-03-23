@@ -8,20 +8,21 @@
 
 int main(void)
 {
-	int n = 50;
-	int a = 1;
-	int b = 2;
-	int i;
+	int i = 0;
+	long int a = 0, b = 1, next;
 
-	printf("%d, %d", a, b);
-
-	for (i = 0; i < n; i++)
+	while (i < 50)
 	{
-		int c = a + b;
-
-		printf(", %d", c);
+		next = a + b;
 		a = b;
-		b = c;
+		b = next;
+		printf("%lu", next);
+
+		if (i < 49)
+		{
+			printf(", ");
+		}
+		i++;
 	}
 	printf("\n");
 	return (0);
