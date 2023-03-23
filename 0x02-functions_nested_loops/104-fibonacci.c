@@ -7,11 +7,11 @@
 int main(void)
 {
 	int a = 1;
-	int b = 2;
+	int b = 1;
 	int i;
 
 	printf("%d, %d, ", a, b);
-	for (i = 2; i < 98; i++)
+	for (i = 3; i <= 98; i++)
 	{
 		int c = a + b;
 
