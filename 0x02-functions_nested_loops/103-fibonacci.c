@@ -20,7 +20,7 @@ int main(void)
 		{
 			sum += b;
 		}
-		
+
 		c = a + b;
 
 		a = b;
