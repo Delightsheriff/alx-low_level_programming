@@ -9,26 +9,13 @@
 
 int main(void)
 {
-	long n = 612852475143;
-	long i = 0;
-	long largest_prime_factor = 2;
+	unsigned long int i, n = 612852475143;
 
-	while (i <= sqrt(n))
+	for (i = 3; i < 782849; i = i + 2)
 	{
-		if (n % i == 0)
-		{
-			n /= i;
-			largest_prime_factor = i;
-		}
-		else
-		{
-			i++;
-		}
+		while ((n % i == 0) && (n != i))
+			n = n / i;
 	}
-	if (n > largest_prime_factor)
-	{
-		largest_prime_factor = n;
-	}
-	printf("%ld\n", largest_prime_factor);
+	printf("%lu\n", n);
 	return (0);
 }
