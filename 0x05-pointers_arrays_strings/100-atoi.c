@@ -12,5 +12,7 @@ int _atoi(char *s)
 {
 	int num = atoi(s);
 
+	if
+
 	return (num);
 }
