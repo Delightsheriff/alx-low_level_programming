@@ -9,30 +9,18 @@
 
 char *leet(char *s)
 {
-	int i;
+	int i, j;
 	char sam [5] = {'4', '3', '0', '7', '1'};
+	char temp [5] = {'a', 'e', 'o', 't', 'l',  };
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == 'a' || s[i] == 'A')
+		for (j = 0; temp[j] != '\0'; j++)
 		{
-			s[i] = sam[0];
-		}
-		else if (s[i] == 'e' || s[i] == 'E')
-		{
-			s[i] = sam[1];
-		}
-		else if (s[i] == 'e' || s[i] == 'E')
-		{
-			s[i] = sam[2];
-		}
-		else if (s[i] == 'e' || s[i] == 'E')
-		{
-			s[i] = sam[3];
-		}
-		else if (s[i] == 'e' || s[i] == 'E')
-		{
-			s[i] = sam[4];
+			if ((s[i] == temp[j] - 32) || (temp[j] == s[i]))
+			{
+				s[i] = sam[j];
+			}
 		}
 	}
 	return (s);
