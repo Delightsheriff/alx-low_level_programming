@@ -10,19 +10,20 @@
 
 char *cap_string(char *s)
 {
-	char temp = 1;
 	int i;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (temp && isalpha(s[i]))
+		if ((i == 0 || s[i - 1] == ' ' || s[i - 1] == '\t' || s[i - 1] == '\n'
+		|| s[i - 1] == ',' || s[i - 1] == ';' || s[i - 1] == '.' || s[i - 1] == '!'
+		|| s[i - 1] == '?' || s[i - 1] == '"' || s[i - 1] == '(' || s[i - 1] == ')'
+		|| s[i - 1] == '{' || s[i - 1] == '}') && isalpha(s[i]))
 		{
 			s[i] = toupper(s[i]);
-			temp = 0;
 		}
-		else if (strchr(" \t\n,;.!?\"(){}", s[i]) != NULL)
+		else
 		{
-			temp = 1;
+			s[i] = tolower(s[i]);
 		}
 	}
 	return (s);
