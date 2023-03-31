@@ -11,28 +11,34 @@
 
 void print_buffer(char *b, int size)
 {
-	int i, j;
+	int byte, index;
 
-	for (i = 0; i < size; i += 10)
+	for (byte = 0; byte < size; byte += 10)
 	{
-		printf("%08x: ", i);
-		for (j = i; j < i + 10 && j < size; j++)
+		printf("%08x: ", byte);
+		for (index = 0; index < 10; index++)
 		{
-			printf("%02x ", b[j] & 0xff);
+			if ((index + byte) >= size)
+				printf("  ");
+			else
+				printf("%02x", *(b + index + byte));
+			if ((index % 2) != 0 && index != 0)
+				printf(" ");
 		}
-		for (; j < i + 10; j++)
+		for (index = 0; index < 10; index++)
 		{
-			printf("   ");
+			if ((index + byte) >= size)
+				break;
+			else if (*(b + index + byte) >= 31 &&
+					*(b + index + byte) <= 126)
+				printf("%c", *(b + index + byte));
+			else
+				printf(".");
 		}
-		printf(" ");
-		for (j = i; j < i + 10 && j < size; j++)
-		{
-			printf("%c", isprint(b[j]) ? b[j] : '.');
-		}
+		if (byte >= size)
+			continue;
 		printf("\n");
 	}
 	if (size <= 0)
-	{
 		printf("\n");
-	}
 }
