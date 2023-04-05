@@ -38,7 +38,7 @@ int root_(int n, int test)
 	}
 	else
 	{
-		return (- 1);
+		return (-1);
 	}
 
 
