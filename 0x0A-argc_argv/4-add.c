@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	{
 		for (i = 1; i < argc; i++)
 		{
-			*num = argv[i];
+			num = argv[i];
 
 			for (j = 0; num[j] != '\0'; j++)
 			{
