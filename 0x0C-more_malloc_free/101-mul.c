@@ -1,41 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
 
 /**
  * main - multiply 2 numbers as arguments
  * @argc: number of arguments
  * @argv: arguments
  *
- * Return: 0 on success, 1 on error
+ * Return: ) Sucess
  */
 int main(int argc, char *argv[])
 {
-	long num1, num2, result;
-	char *endptr;
+	unsigned long mul;
+	int i, j;
 
 	if (argc != 3)
 	{
-		fprintf(stderr, "Usage: %s num1 num2\n", argv[0]);
-		return (1);
+		printf("Error\n");
+		exit(98);
 	}
 
-	num1 = strtol(argv[1], &endptr, 10);
-	if (*endptr != '\0')
+	for (i = 1; i < argc; i++)
 	{
-		fprintf(stderr, "Error: %s is not a valid integer\n", argv[1]);
-		return (1);
+		for (j = 0; argv[i][j] != '\0'; j++)
+		{
+			if (argv[i][j] > 57 || argv[i][j] < 48)
+			{
+				printf("Error\n");
+				exit(98);
+			}
+		}
 	}
 
-	num2 = strtol(argv[2], &endptr, 10);
-	if (*endptr != '\0')
-	{
-		fprintf(stderr, "Error: %s is not a valid integer\n", argv[2]);
-		return (1);
-	}
-
-	result = num1 * num2;
-
-	printf("%ld\n", result);
+	mul = atol(argv[1]) * atol(argv[2]);
+	printf("%lu\n", mul);
 
 	return (0);
 }
