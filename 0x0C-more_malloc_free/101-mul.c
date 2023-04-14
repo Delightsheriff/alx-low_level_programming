@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -11,8 +9,7 @@
  */
 int main(int argc, char *argv[])
 {
-	unsigned long mul;
-	int i, j;
+	int num1, num2;
 
 	if (argc != 3)
 	{
@@ -20,19 +17,15 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	for (i = 1; i < argc; i++)
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[2]);
+
+	if (num1 == 0 || num2 == 0)
 	{
-		for (j = 0; argv[i][j] != '\0'; j++)
-		{
-			if (argv[i][j] > 57 || argv[i][j] < 48)
-			{
-				printf("Error\n");
-				exit(98);
-			}
-		}
+		printf("Error\n");
+		return (98);
 	}
-	mul = atol(argv[1]) * atol(argv[2]);
-	printf("%lu\n", mul);
+	printf("%d\n", num1 * num2);
 
 	return (0);
 }
