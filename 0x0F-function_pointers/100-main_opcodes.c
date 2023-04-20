@@ -11,7 +11,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int temp_bytes = atoi(argv[1]);
+	int temp_bytes;
 	int i;
 
 	if (argc != 2)
@@ -19,6 +19,8 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
+
+	temp_bytes = atoi(argv[1]);
 
 	if (temp_bytes < 0)
 	{
@@ -28,7 +30,7 @@ int main(int argc, char *argv[])
 
 	for (i = 0; i < temp_bytes; i++)
 	{
-		printf("%02hhx", *((char *)main + i));
+		printf("%02x", *((unsigned char *)main + i));
 		if (i < temp_bytes - 1)
 			printf(" ");
 		else
