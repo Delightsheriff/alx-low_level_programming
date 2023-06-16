@@ -1,17 +1,16 @@
 #!/usr/bin/python3
-def is_palindrome(n):
-    s = str(n)
-    return s == s[::-1]
+def is_palindrome(number):
+    return str(number) == str(number)[::-1]
 
 
-def largest_palindrome_product(n):
-    max_palindrome = 0
-    for i in range(1, n + 1):
-        for j in range(1, n + 1):
-            product = i * j
-            if is_palindrome(product):
-                max_palindrome = max(max_palindrome, product)
-    return max_palindrome
+largest_palindrome = 0
 
+for i in range(999, 99, -1):
+    for j in range(i, 99, -1):
+        product = i * j
+        if is_palindrome(product) and product > largest_palindrome:
+            largest_palindrome = product
 
-print(largest_palindrome_product(1000))
+# Save the result to the file
+with open("102-result", "w") as file:
+    file.write(str(largest_palindrome))
