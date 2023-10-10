@@ -1,29 +1,6 @@
 #include "search_algos.h"
 
 /**
- * print_array - print the current array
- * @array: array to print
- * @size: increment up to this size
- * Return: Nothing
- */
-
-void print_array(int *array, size_t size)
-{
-size_t i;
-
-printf("Searching in array: ");
-for (i = 0; i < size; i++)
-{
-printf("%d", array[i]);
-if (i < size - 1)
-{
-printf(", ");
-}
-}
-printf("\n");
-}
-
-/**
  * binary_search - binary search a ascending sorted array to find a value.
  * @array: pointer to first element in array to search in
  * @size: number of elements in array
@@ -32,34 +9,32 @@ printf("\n");
  */
 int binary_search(int *array, size_t size, int value)
 {
-size_t left;
-size_t right;
-size_t mid;
+size_t i = 0, low, mid, high = size - 1;
 
 if (array == NULL || size == 0)
 {
 return (-1);
 }
-left = 0;
-right = size - 1;
 
-print_array(array, size);
-while (left <= right)
+while (low <= high)
 {
-mid = (left + right) / 2;
-if (array[mid] == value)
+mid = (high + low) / 2;
+i = low;
+printf("Searching in array: ");
+for (; i <= high; ++i)
 {
-return (mid);
-}
-else if (value < array[mid])
-{
-right = mid - 1;
-}
+if (i != low)
+printf(", %d", array[i]);
 else
-{
-left = mid + 1;
+printf("%d", array[i]);
 }
-print_array(array + left, right - left + 1);
+printf("\n");
+if (array[mid] < value)
+low = mid + 1;
+else if (array[mid] > value)
+high = mid - 1;
+else
+return (mid);
 }
 return (-1);
 }
